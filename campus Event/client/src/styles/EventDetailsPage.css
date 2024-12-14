@@ -1,0 +1,261 @@
+.event-details-container {
+  background: var(--surface-color);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-image {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.event-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-info {
+  padding: var(--spacing-xl);
+}
+
+.event-info h1 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.event-meta {
+  display: grid;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.event-meta p {
+  color: var(--text-secondary);
+}
+
+.event-description {
+  margin-bottom: var(--spacing-xl);
+}
+
+.event-description h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+.event-description p {
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.event-actions {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  font-size: 3rem;
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  .event-image {
+    height: 250px;
+  }
+
+  .event-info {
+    padding: var(--spacing-lg);
+  }
+
+  .event-info h1 {
+    font-size: 2rem;
+  }
+}
+
+.event-details-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.event-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.event-header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.event-meta {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.event-meta span {
+  padding: 0.5rem 1rem;
+  background: #f8f9fa;
+  border-radius: 20px;
+  font-size: 1.1rem;
+}
+
+.event-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.event-image-section {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.event-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.event-details-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.description-section,
+.capacity-section {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.detail-item {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.detail-item .label {
+  display: block;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.detail-item .value {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.registration-status {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #e8f5e9;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.registered-message {
+  font-size: 1.2rem;
+  color: #2e7d32;
+  margin-bottom: 0.5rem;
+}
+
+.seat-number {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.rsvp-button {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.rsvp-button:hover {
+  opacity: 0.9;
+}
+
+.event-full {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #fff3e0;
+  border-radius: 8px;
+  text-align: center;
+  color: #e65100;
+}
+
+.back-button-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.back-button {
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.back-button:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .event-content {
+    grid-template-columns: 1fr;
+  }
+
+  .event-meta {
+    gap: 1rem;
+  }
+
+  .event-meta span {
+    font-size: 1rem;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+} 

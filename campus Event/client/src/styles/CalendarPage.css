@@ -1,0 +1,145 @@
+.calendar-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.calendar-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.event-calendar {
+  width: 100%;
+  border: none;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.has-events {
+  background-color: #f0f4ff !important;
+  position: relative;
+}
+
+.event-indicator {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.event-count {
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.category-filter {
+  margin: 2rem 0;
+}
+
+.category-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.category-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 20px;
+  background: white;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.category-btn.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+.events-list {
+  margin-top: 2rem;
+}
+
+.event-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.event-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.event-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.event-info {
+  margin-top: 1rem;
+}
+
+.event-info p {
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+.no-events {
+  text-align: center;
+  color: #666;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* Calendar overrides */
+.react-calendar {
+  border: none !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.react-calendar__tile {
+  padding: 1em 0.5em;
+  position: relative;
+}
+
+.react-calendar__tile--now {
+  background: #f0f4ff !important;
+}
+
+.react-calendar__tile--active {
+  background: var(--primary-color) !important;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .calendar-page {
+    padding: 1rem;
+  }
+
+  .calendar-container {
+    padding: 1rem;
+  }
+
+  .event-cards {
+    grid-template-columns: 1fr;
+  }
+}

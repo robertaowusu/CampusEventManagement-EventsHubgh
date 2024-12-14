@@ -1,0 +1,115 @@
+/* HomePage.css */
+
+.page-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-section {
+  background-image: linear-gradient(rgba(45, 27, 105, 0.9), rgba(45, 27, 105, 0.9)), url('/images/webpage.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 500px;
+  width: 100vw;  /* Full viewport width */
+  margin-left: calc(-50vw + 50%);  /* Center the full-width section */
+  margin-right: calc(-50vw + 50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+.hero-section h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-description {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.cta-buttons {
+  display: flex; /* Use flexbox for button alignment */
+  justify-content: center; /* Center the buttons */
+  gap: 15px; /* Space between buttons */
+}
+
+.btn {
+  padding: 12px 25px; /* Add padding to buttons */
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  color: white; /* Text color */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.event-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.cta-buttons .btn {
+  padding: 1rem 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.cta-buttons .btn.primary {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.cta-buttons .btn.secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-buttons .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.event-image {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
