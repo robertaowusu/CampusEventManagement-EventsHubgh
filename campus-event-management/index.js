@@ -54,32 +54,42 @@ if (process.env.NODE_ENV === 'production') {
   });
 } else {
   app.get('/', (req, res) => {
-    res.send(`
-      <html>
-        <head>
-          <title>Campus Event Management System</title>
-          <style>
-            body { font-family: Arial, sans-serif; margin: 40px; }
-            h1 { color: #333; }
-            .status { color: green; }
-            .endpoints { margin-top: 20px; }
-            .endpoint { margin: 10px 0; }
-          </style>
-        </head>
-        <body>
-          <h1>Campus Event Management System</h1>
-          <p class="status">✅ Server is running!</p>
-          <div class="endpoints">
-            <h2>Available Endpoints:</h2>
-            <div class="endpoint">🔐 Authentication: /api/auth/login, /api/auth/register</div>
-            <div class="endpoint">📅 Events: /api/events</div>
-          </div>
-          <p>For API documentation, visit /api/status</p>
-        </body>
-      </html>
-    `);
+    if (process.env.NODE_ENV === 'production') {
+      res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    } else {
+      res.send(`
+        <html>
+          <head>
+            <title>Campus Event Management System</title>
+            <style>
+              body { font-family: Arial, sans-serif; margin: 40px; }
+              h1 { color: #333; }
+              .status { color: green; }
+              .endpoints { margin-top: 20px; }
+              .endpoint { margin: 10px 0; }
+            </style>
+          </head>
+          <body>
+            <h1>Campus Event Management System</h1>
+            <p class="status">✅ Server is running!</p>
+            <div class="endpoints">
+              <h2>Available Endpoints:</h2>
+              <div class="endpoint">🔐 Authentication: /api/auth/login, /api/auth/register</div>
+              <div class="endpoint">📅 Events: /api/events</div>
+            </div>
+            <p>For API documentation, visit /api/status</p>
+          </body>
+        </html>
+      `);
+    }
   });
 }
+
+// Add error handling middleware back
+app.use((err, req, res, next) => {
+  console.error('Error:', err);
+  res.status(500).json({ error: 'Something went wrong!' });
+});
 
 // Start server
 const server = app.listen(port, '0.0.0.0', () => {
