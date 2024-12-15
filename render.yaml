@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: CampusEventManagement
+    env: node
+    buildCommand: "cd client && npm install && npm run build"
+    ...
