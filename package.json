@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build": "cd client && npm install --legacy-peer-deps && npm run build",
+    "build": "cd client && npm install --legacy-peer-deps && npx vite build",
     "deploy": "npm install && npm run build"
   },
   "keywords": [],
