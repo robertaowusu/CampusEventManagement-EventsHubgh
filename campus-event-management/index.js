@@ -3,7 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 const connectDB = require('./config/db');
-const { protect } = require('./middleware/auth');
+const auth = require('./middleware/auth');
 const eventRoutes = require('./routes/events');
 const authRoutes = require('./routes/auth');
 
@@ -17,7 +17,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/events', protect, eventRoutes);
+
+// Protected routes
+app.use('/api/events', auth, eventRoutes);
 
 // Basic route
 app.get('/', (req, res) => {
