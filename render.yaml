@@ -3,5 +3,6 @@ services:
     name: CampusEventManagement
     env: node
     packageManager: npm
-    buildCommand: "npm install && npm run build"
+    nodeVersion: 14.x
+    buildCommand: "cd client && npm install && npm run build"
     startCommand: "npm start"
