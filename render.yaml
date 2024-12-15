@@ -2,7 +2,6 @@ services:
   - type: web
     name: CampusEventManagement
     env: node
-    packageManager: npm
-    nodeVersion: 14.x
-    buildCommand: "cd client && npm install --legacy-peer-deps && npm run build"
-    startCommand: "npm start"
+    packageManager: bun
+    buildCommand: "cd client && bun install && bun run build"
+    startCommand: "bun start"
