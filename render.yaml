@@ -4,3 +4,4 @@ services:
     env: node
     packageManager: npm
     buildCommand: "cd client && npm install && npm run build"
+    startCommand: "npm start"
