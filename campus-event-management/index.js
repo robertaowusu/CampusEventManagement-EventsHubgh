@@ -6,7 +6,6 @@ const connectDB = require('./config/db');
 const auth = require('./middleware/auth');
 const eventRoutes = require('./routes/events');
 const authRoutes = require('./routes/auth');
-const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 10000;
@@ -16,16 +15,11 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Serve static files from the React app if in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
-}
-
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/events', auth, eventRoutes);
 
-// Basic route with more information
+// API Status route
 app.get('/api/status', (req, res) => {
   res.json({
     status: 'ok',
@@ -47,45 +41,59 @@ app.get('/api/status', (req, res) => {
   });
 });
 
-// Serve React app for any other routes in production
-if (process.env.NODE_ENV === 'production') {
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-  });
-} else {
-  app.get('/', (req, res) => {
-    if (process.env.NODE_ENV === 'production') {
-      res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-    } else {
-      res.send(`
-        <html>
-          <head>
-            <title>Campus Event Management System</title>
-            <style>
-              body { font-family: Arial, sans-serif; margin: 40px; }
-              h1 { color: #333; }
-              .status { color: green; }
-              .endpoints { margin-top: 20px; }
-              .endpoint { margin: 10px 0; }
-            </style>
-          </head>
-          <body>
-            <h1>Campus Event Management System</h1>
-            <p class="status">✅ Server is running!</p>
-            <div class="endpoints">
-              <h2>Available Endpoints:</h2>
-              <div class="endpoint">🔐 Authentication: /api/auth/login, /api/auth/register</div>
-              <div class="endpoint">📅 Events: /api/events</div>
-            </div>
-            <p>For API documentation, visit /api/status</p>
-          </body>
-        </html>
-      `);
-    }
-  });
-}
+// Root route
+app.get('/', (req, res) => {
+  res.send(`
+    <html>
+      <head>
+        <title>Campus Event Management System</title>
+        <style>
+          body { 
+            font-family: Arial, sans-serif; 
+            margin: 40px; 
+            line-height: 1.6;
+            color: #333;
+          }
+          h1 { 
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+          }
+          .status { 
+            color: #27ae60;
+            font-weight: bold;
+          }
+          .endpoints { 
+            margin-top: 20px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+          }
+          .endpoint { 
+            margin: 10px 0;
+            padding: 5px 0;
+          }
+          .api-doc {
+            margin-top: 20px;
+            color: #2980b9;
+          }
+        </style>
+      </head>
+      <body>
+        <h1>Campus Event Management System</h1>
+        <p class="status">✅ Server is running!</p>
+        <div class="endpoints">
+          <h2>Available Endpoints:</h2>
+          <div class="endpoint">🔐 Authentication: /api/auth/login, /api/auth/register</div>
+          <div class="endpoint">📅 Events: /api/events</div>
+        </div>
+        <p class="api-doc">For API documentation, visit <a href="/api/status">/api/status</a></p>
+      </body>
+    </html>
+  `);
+});
 
-// Add error handling middleware back
+// Error handling middleware
 app.use((err, req, res, next) => {
   console.error('Error:', err);
   res.status(500).json({ error: 'Something went wrong!' });
