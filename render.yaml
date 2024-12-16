@@ -5,3 +5,7 @@ services:
     packageManager: bun
     buildCommand: "cd client && bun install && bun run build"
     startCommand: "bun start"
+    envVars:
+      MONGODB_URI: "mongodb+srv://Manchini:realmadrid@cluster0.svm6x.mongodb.net/event-db-2?retryWrites=true&w=majority"
+      JWT_SECRET: "your_secret_key_here"
+      PORT: 5001
