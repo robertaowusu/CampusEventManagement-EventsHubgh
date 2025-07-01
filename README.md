@@ -13,5 +13,4 @@ This is a unique project for managing campus events, developed independently to 
 2. Run `npm install` to install dependencies
 3. Start the server with `npm run dev`
 
-## License
-This project is licensed under the MIT License.
+
